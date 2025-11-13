@@ -1,8 +1,9 @@
 {
   "name": "8-react-redux",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "homepage": "https://yohanfrutiger.github.io/react-redux",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
