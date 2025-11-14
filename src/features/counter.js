@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  value: 0
+  value: 0,
+  error: null
 }
 
 export const counter = createSlice({
@@ -9,16 +10,21 @@ export const counter = createSlice({
   initialState,
   reducers: {
     increment: (state, action) => {
-      state.value++
+      state.value += action.payload
     },
     decrement: (state, action) => {
-      state.value--
+      state.value -= action.payload
     },
     multiply: (state, action) => {
-      state.value = state.value * 10
+      state.value = state.value * action.payload
     },
     divide: (state, action) => {
-      state.value = state.value / 10
+      if (action.payload === 0) {
+        state.error = "Impossible de diviser par 0 !"
+        return
+      }
+      state.value = state.value / action.payload
+      state.error = null   // reset l’erreur si tout va bien
     }
   }
 })
